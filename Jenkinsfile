@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     // Example for a Maven build
-                    sh 'mvn clean package'
+                    bat 'mvn clean package'
                     
                     // If using Gradle
                     // sh './gradlew build'
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     // Example for running unit tests with Maven
-                    sh 'mvn test'
+                    bat 'mvn test'
 
                     // If using Gradle
                     // sh './gradlew test'
@@ -41,7 +41,7 @@ pipeline {
             steps {
                 script {
                     // Simulated deployment step (Modify as needed)
-                    sh 'echo "Deploying application..."'
+                    bat 'echo "Deploying application..."'
                     
                     // Example: Copy to a server (modify accordingly)
                     // sh 'scp target/myapp.jar user@server:/path/to/deploy/'
