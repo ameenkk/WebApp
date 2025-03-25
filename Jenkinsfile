@@ -3,22 +3,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/yourusername/your-repo.git'
-            }
-        }
-        stage('Build') {
-            steps {
-                echo 'Building...'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
+                git url: 'https://github.com/ameenkk/WebApp.git',
+                    credentialsId: 'your-jenkins-credential-id'
             }
         }
     }
