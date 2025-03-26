@@ -1,61 +1,20 @@
 pipeline {
     agent any
-
-    environment {
-        GIT_REPO = 'https://github.com/ameenkk/WebApp.git'
-        CREDENTIALS_ID = 'fdf1688a-d51d-4d34-aef3-5365139046a2'  // Replace with your Jenkins credentials ID
-    }
-
     stages {
-        stage('Checkout') {
-            steps {
-                git url: GIT_REPO, credentialsId: CREDENTIALS_ID, branch: 'main'
-            }
-        }
-
         stage('Build') {
             steps {
-                script {
-                    // Example for a Maven build
-                    bat 'mvn clean package'
-                    
-                    // If using Gradle
-                    // sh './gradlew build'
-                }
+                echo 'Building..'
             }
         }
-
         stage('Test') {
             steps {
-                script {
-                    // Example for running unit tests with Maven
-                    bat 'mvn test'
-
-                    // If using Gradle
-                    // sh './gradlew test'
-                }
+                echo 'Testing..'
             }
         }
-
         stage('Deploy') {
             steps {
-                script {
-                    // Simulated deployment step (Modify as needed)
-                    bat 'echo "Deploying application..."'
-                    
-                    // Example: Copy to a server (modify accordingly)
-                    // sh 'scp target/myapp.jar user@server:/path/to/deploy/'
-                }
+                echo 'Deploying....'
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Pipeline executed successfully!'
-        }
-        failure {
-            echo 'Pipeline failed!'
         }
     }
 }
